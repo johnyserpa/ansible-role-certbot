@@ -5,7 +5,7 @@
   register: letsencrypt_cert
 
 - name: Stop services to allow certbot to generate a cert.
-  service:
+  systemd:
     name: "{{ item }}"
     state: stopped
   when: not letsencrypt_cert.stat.exists
@@ -16,7 +16,7 @@
   when: not letsencrypt_cert.stat.exists
 
 - name: Start services after cert has been generated.
-  service:
+  systemd:
     name: "{{ item }}"
     state: started
   when: not letsencrypt_cert.stat.exists
