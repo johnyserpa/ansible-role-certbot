@@ -14,14 +14,11 @@
 - name: Generate new certificate if one doesn't exist.
   shell: "{{ certbot_create_command }}"
   when: not letsencrypt_cert.stat.exists
-  
-- name: Delay nginx start
-  wait_for:
-    timeout: 5
 
 - name: Start services after cert has been generated.
   service:
     name: "{{ item }}"
     state: started
+    sleep: 1
   when: not letsencrypt_cert.stat.exists
   with_items: "{{ certbot_create_standalone_stop_services }}"
