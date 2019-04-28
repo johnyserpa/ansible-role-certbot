@@ -75,6 +75,12 @@ Certbot Git repository options. To install from source, set `certbot_install_fro
 
 The directory inside which Certbot will be cloned.
 
+### Nginx plugin 
+
+You can install nginx-plugin if desired.
+
+    certbot_install_nginx_plugin: false
+
 ## Dependencies
 
 None.
