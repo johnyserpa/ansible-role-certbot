@@ -7,6 +7,9 @@
 - import_tasks: install-from-source.yml
   when: certbot_install_from_source
 
+- include_tasks: install-nginx-plugin.yml
+  when: certbot_install_nginx_plugin
+
 - include_tasks: create-cert-standalone.yml
   with_items: "{{ certbot_certs }}"
   when:
