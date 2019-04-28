@@ -32,3 +32,6 @@ certbot_keep_updated: yes
 
 # Where to put Certbot when installing from source.
 certbot_dir: /opt/certbot
+
+# To install nginx plugin set to yes
+certbot_install_nginx_plugin: false
