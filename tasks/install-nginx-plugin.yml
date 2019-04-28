@@ -1,0 +1,6 @@
+---
+- name: Ensure nginx plugin is installed
+  yum:
+    name: python2-certbot-nginx
+    state: present
+    update_cache: True
